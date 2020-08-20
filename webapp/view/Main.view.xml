@@ -1,0 +1,72 @@
+<mvc:View controllerName="poc.Acc.controller.Main" xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core" height="100%">
+	<m:Page title="{i18n>title}">
+		<m:customHeader>
+			<m:Toolbar>
+				<m:ToolbarSpacer/>
+				<m:Title text="Hauptseite"/>
+				<m:ToolbarSpacer/>
+			</m:Toolbar>
+		</m:customHeader>
+		<m:content>
+			<m:Toolbar>
+				<m:Title id="fontChange" text="Themes"></m:Title>
+				<m:Select width="auto" id="comboBox" items="{/items}" change=".onThemeChange" ariaLabelledBy="textComboBox">
+					<core:Item key="{key}" text="{text}"/>
+				</m:Select>
+				
+				<m:Title text="Font"></m:Title>
+				<m:Select width="auto" id="comboBoxFont" items="{/items}" change=".onFontChange" ariaLabelledBy="textComboBox">
+					<core:Item key="{key}" text="{text}"/>
+				</m:Select>
+				<core:InvisibleText id="textComboBox" text="Auswahlliste zu änderung die App Theme"/>
+			</m:Toolbar>
+			<TreeTable id="TreeTableBasic" rows="{path:'/catalog/clothing', parameters: {arrayNames:['categories']}}" selectionMode="None"
+				enableSelectAll="false" ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar>
+						<m:Title id="title" text="Kleidung Tabelle"/>
+						<m:ToolbarSpacer/>
+						<m:Button id="Button1" class="zoomTarget" text="Alle komprimieren" press="onbtnClicked" ariaDescribedBy="collapseAll"/>
+						<core:InvisibleText id="collapseAll" text="Alle tabellenzeile komprimieren"/>
+						<m:Button id="Button2" text="Selektierte komprimieren" press="onbtnClicked" ariaDescribedBy="collapseSelection"/>
+						<core:InvisibleText id="collapseSelection" text="selektierte tabellenzeile komprimieren"/>
+						<m:Button id="Button3" text="Erste ebne erweitern" press="onbtnClicked" ariaLabelledBy="expandFirstLevel"/>
+						<core:InvisibleText id="expandFirstLevel" text="erste tabelle ebene erweitern"/>
+						<m:Button id="Button4" text="Selektierte erweitern" press="onbtnClicked" ariaLabelledBy="expandSelection"/>
+						<core:InvisibleText id="expandSelection" text="selektierte tabellenzeile erweitern"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="13rem">
+						<m:Label text="Kategorien"/>
+						<template ariaDescribedBy="columnName">
+							<m:Text text="{name}" wrapping="false"/>
+						</template>
+					</Column>
+					<Column width="9rem">
+						<m:Label text="Preis"/>
+						<template>
+							<u:Currency value="{amount}" currency="{currency}"/>
+						</template>
+					</Column>
+					<Column width="11rem">
+						<m:Label text="Größe"/>
+						<template>
+							<m:Select items="{path: '/sizes', templateShareable: true}" selectedKey="{size}" visible="{= !!${size}}" forceSelection="false">
+								<core:Item key="{key}" text="{value}"/>
+							</m:Select>
+						</template>
+					</Column>
+				</columns>
+			</TreeTable>
+			<core:InvisibleText id="headerToolbarLabel" text="Haup Toolbar, Hier befindet sich alle werkzuegen zu Navigation zweck"/>
+			<core:InvisibleText id="rejectButtonDescription" text="Description of reject button goes here."/>
+			<core:InvisibleText id="comingSoonButtonDescription" text="This feature is not active just now."/>
+			<!-- These labels exist only to provide targets for the ARIA label on the Edit and Action buttons -->
+			<core:InvisibleText id="editButtonLabel" text="Edit Button Label"/>
+			<core:InvisibleText id="goToDetails" text="Springen zu Details Site"/>
+			<m:Button text="Zu Detailsite" press="onPress" ariaLabelledBy="goToDetails"/>
+		</m:content>
+	</m:Page>
+</mvc:View>

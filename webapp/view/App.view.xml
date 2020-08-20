@@ -1,0 +1,7 @@
+<mvc:View controllerName="poc.Acc.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+	<Shell>
+		<App id="app">
+			<pages></pages>
+		</App>
+	</Shell>
+</mvc:View>

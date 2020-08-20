@@ -1,0 +1,8 @@
+<mvc:View controllerName="poc.Acc.controller.Detail" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<Page title="Detailseite">	
+		<content>
+			<Button text="Zurück" press="onPress" ariaLabelledBy="goBackToHome"/>
+			<core:InvisibleText id="goBackToHome" text="Zurück zur Hauptseite"/>
+		</content>
+	</Page>
+</mvc:View>

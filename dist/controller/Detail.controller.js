@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/core/routing/History","sap/ui/core/UIComponent"],function(e,o,n){"use strict";return e.extend("poc.Acc.controller.Detail",{onInit:function(){},onPress:function(){var e=o.getInstance();var t=e.getPreviousHash();if(t!==undefined){window.history.go(-1)}else{var r=n.getRouterFor(this);r.navTo("RouteMain",{},true)}}})});
